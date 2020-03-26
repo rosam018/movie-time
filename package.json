@@ -1,6 +1,6 @@
 {
-  "homepage":"https://github.com/rosam018/movie-time",
-  "name": "movie-library",
+  "homepage": "https://github.com/rosam018/movie-time",
+  "name": "movie-time",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
