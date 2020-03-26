@@ -28,7 +28,7 @@ export default props => {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg sticky-top bg-transparent">
+      <nav className="navbar navbar-expand-lg bg-transparent">
         <button className="navbar-toggler" onClick={toggleNavbar}>
           <span>
             <FontAwesomeIcon icon={faBars} />
