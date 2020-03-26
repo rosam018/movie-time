@@ -14,14 +14,14 @@ export const useActions = (state, dispatch) => {
       .then(res => {
         //console.log(res.data.results);
         dispatch({
-          type: types.SET_MOVIES,
+          type: types.SET_LATESTMOVIES,
           latestMovies: res.data.results
         });
       });
   };
 
   const getMovieDetails = movieId => {
-       return axiosAPI    
+    return axiosAPI
       .get(`/3/movie/${movieId}`, {
         params: {
           api_key: process.env.REACT_APP_API_KEY
@@ -35,7 +35,22 @@ export const useActions = (state, dispatch) => {
       });
   };
 
-  const getMovieGenres = () => {
+  const getRelatedMovies = movieId => {
+    return axiosAPI
+      .get(`/3/movie/${movieId}/similar`, {
+        params: {
+          api_key: process.env.REACT_APP_API_KEY
+        }
+      })
+      .then(res => {
+        dispatch({
+          type: types.SET_RELATEDMOVIES,
+          relatedMovies: res.data.results.slice(0, 6)
+        });
+      });
+  };
+
+  const getGenres = () => {
     return axiosAPI
       .get(`/3/genre/movie/list`, {
         params: {
@@ -43,22 +58,21 @@ export const useActions = (state, dispatch) => {
         }
       })
       .then(res => {
-        //console.log(res.data.genres);
         dispatch({
-          type: types.SET_MOVIEGENRES,
-          movieGenres: res.data.genres
+          type: types.SET_GENRES,
+          genres: res.data.genres
         });
       });
   };
 
-  const getGenreById = genreId => {   
+  const getGenreById = genreId => {
     return axiosAPI
       .get(`/3/genre/movie/list`, {
         params: {
           api_key: process.env.REACT_APP_API_KEY
         }
       })
-      .then(res => {                
+      .then(res => {
         let genre = res.data.genres.find(g => g.id.toString() === genreId);
         dispatch({
           type: types.SET_GENRE,
@@ -97,16 +111,15 @@ export const useActions = (state, dispatch) => {
           searchResult: res.data.results
         });
       });
-
-      
   };
 
   return {
     getLatestMovies,
     getMovieDetails,
-    getMovieGenres,
+    getGenres,
     getMoviesByGenre,
     getGenreById,
-    searchMovie
+    searchMovie,
+    getRelatedMovies
   };
 };

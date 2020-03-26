@@ -6,7 +6,7 @@
 
 * {
   font-family: "Baloo 2", sans-serif;
-  color:$white;
+  color: $white;
 }
 
 body {
@@ -17,12 +17,29 @@ body {
   color: $primary;
 }
 
+.navbar-toggler {
+  border-color: $primary;
+  // background-color: $primary;
+}
+
 .navbar-brand {
   font-family: "Pacifico";
   color: $primary;
 }
 
+.nav-link {
+  color: $white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 .btn-link {
   color: $white;
 }
-  
+
+@media (max-width: 576px) {
+  .navbar-nav {
+    margin-left: 0 !important;
+    margin-bottom: 20px;
+  }
+}

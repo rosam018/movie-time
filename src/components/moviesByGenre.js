@@ -20,8 +20,6 @@ export default ({ genreId }) => {
 
   useEffect(() => {
     if (genreId) {
-      console.log(genreId, "======");
-
       dispatch({
         type: types.CLEAR_MOVIESBYGENRE
       });
@@ -34,7 +32,7 @@ export default ({ genreId }) => {
   }, [genreId]);
 
   return (
-    <div className="row mb-3 px-2">
+    <div className="row mb-3 px-2 mx-0">
       <div className="col-12">
         {loading ? (
           <div className="d-flex justify-content-center">

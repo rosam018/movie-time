@@ -18,10 +18,10 @@ export default () => {
         setLoading(false);
       });
     }
-  });
+  },[init]);
 
   return (
-    <div className="row mb-3 px-2">
+    <div className="row mb-3 px-2 mx-0">
       <div className="col-12">
         {loading ? (
           <div className="d-flex justify-content-center">

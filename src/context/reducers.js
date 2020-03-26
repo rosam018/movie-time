@@ -1,28 +1,31 @@
 const initialState = {
   latestMovies: [],
-  movieGenres: [],
+  genres: [],
   moviesByGenre: [],
   genre: undefined,
   movie: undefined,
-  searchResult: undefined
+  searchResult: undefined,
+  relatedMovies: []
 };
 
 // this holds the possible types of actions
 const types = {
+  SET_LATESTMOVIES:"SET_LATESTMOVIES",
   SET_MOVIE: "SET_MOVIE",
-  SET_MOVIEGENRES: "SET_MOVIEGENRES",
+  SET_RELATEDMOVIES: "SET_RELATEDMOVIES",
+  SET_GENRES: "SET_GENRES",
   SET_MOVIESBYGENRE: "SET_MOVIESBYGENRE",
   SET_GENRE: "SET_GENRE",
+  SET_SEARCHMOVIES: "SET_SEARCHMOVIES",
   CLEAR_MOVIE: "CLEAR_MOVIE",
-  CLEAR_MOVIESBYGENRE: "CLEAR_MOVIESBYGENRE",
-  CLEAR_GENRE: "CLEAR_GENRE",
-  SET_SEARCHMOVIES: "SET_SEARCHMOVIES"
+  CLEAR_MOVIESBYGENRE: "CLEAR_MOVIESBYGENRE"
 };
 
 const reducer = (state = initialState, action) => {
   process.env.NODE_ENV === "development" && console.info(action.type);
   switch (action.type) {
-    case types.SET_MOVIES: {
+
+    case types.SET_LATESTMOVIES: {
       return {
         ...state,
         latestMovies: action.latestMovies || []
@@ -36,10 +39,10 @@ const reducer = (state = initialState, action) => {
       };
     }
 
-    case types.SET_MOVIEGENRES: {
+    case types.SET_GENRES: {
       return {
         ...state,
-        movieGenres: action.movieGenres || []
+        genres: action.genres || []
       };
     }
 
@@ -71,20 +74,20 @@ const reducer = (state = initialState, action) => {
       };
     }
 
-    case types.CLEAR_GENRE: {
-      return {
-        ...state,
-        GENRE: undefined
-      };
-    }
-
     case types.SET_SEARCHMOVIES: {
       return {
         ...state,
         searchResult: action.searchResult || []
       };
     }
-   
+
+    case types.SET_RELATEDMOVIES: {
+      return {
+        ...state,
+        relatedMovies: action.relatedMovies || []
+      };
+    }
+
     default: {
       return state;
     }

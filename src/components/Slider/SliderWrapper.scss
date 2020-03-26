@@ -3,3 +3,11 @@
   overflow: hidden;
   position: relative;
 }
+
+
+
+@media (max-width: 576px) {
+  .slider-wrapper {
+    padding: 10px 0;
+  }
+}

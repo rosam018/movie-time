@@ -1,43 +1,46 @@
-import React from "react";
-import { Link , useHistory} from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 
 import Logo from "../assets/images/logo.png";
 import FacebookLogo from "../assets/images/social_media/facebook.png";
 import InstagramLogo from "../assets/images/social_media/instagram.png";
 import TwitterLogo from "../assets/images/social_media/twitter.png";
 
-
 export default props => {
-const searchRef = React.createRef();
-let history = useHistory();
+  const searchRef = React.createRef();
+  let history = useHistory();
 
-  const handleSearch = () => {
-   console.log(searchRef.current.value)
-   history.push("/search/" + searchRef.current.value)   
+  const handleSearch = () => {   
+    history.push("/search/" + searchRef.current.value);
   };
+
+  const [collapsed, setCollapsed] = useState(false);
+  const toggleNavbar = () => {
+    setCollapsed(!collapsed);
+  };
+
+  const classCollapse = collapsed
+    ? "collapse navbar-collapse"
+    : "collapse navbar-collapse show";
 
   return (
     <header>
       <nav className="navbar navbar-expand-lg sticky-top bg-transparent">
+        <button className="navbar-toggler" onClick={toggleNavbar}>
+          <span>
+            <FontAwesomeIcon icon={faBars} />
+          </span>
+        </button>
+
         <Link className="navbar-brand" to="/">
           <img src={Logo} alt="Movie Time" />
           Movie Time
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarText">
+
+        <div className={classCollapse}>
           <ul className="navbar-nav mr-auto ml-5">
             <li className="nav-item">
               <Link className="nav-link" to="/genre">
@@ -46,7 +49,7 @@ let history = useHistory();
             </li>
           </ul>
 
-          <span className="navbar-text">
+          <span className="navbar-text d-none d-md-block">
             <a
               className="mr-2"
               href="https://www.facebook.com/"
@@ -78,9 +81,18 @@ let history = useHistory();
         <div className="row">
           <div className="col-12 col-xl-8 offset-xl-2">
             <div className="input-group mb-3">
-              <input ref={searchRef} type="text" className="form-control" placeholder="Search Movies by Title" aria-label="Search" aria-describedby="basic-addon2"/>
+              <input
+                ref={searchRef}
+                type="text"
+                className="form-control"
+                placeholder="Search Movies by Title"
+                aria-label="Search"
+                aria-describedby="basic-addon2"
+              />
               <div className="input-group-append">
-                <button className="btn btn-primary" onClick={handleSearch}><FontAwesomeIcon icon={faSearch} /></button>
+                <button className="btn btn-primary" onClick={handleSearch}>
+                  <FontAwesomeIcon icon={faSearch} />
+                </button>
               </div>
             </div>
           </div>

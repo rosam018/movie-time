@@ -9,16 +9,16 @@ export default () => {
   const [searchGenre, setSearchGenre] = useState("");
 
   const {
-    state: { movieGenres },
-    actions: { getMovieGenres }
+    state: { genres },
+    actions: { getGenres }
   } = useContext(StoreContext);
 
   useEffect(() => {
     if (!init) {
       setInit(true);
-      getMovieGenres();
+      getGenres();
     }
-  }, [getMovieGenres, init]);
+  }, [getGenres, init]);
 
   const [showGenreSlider, setShowGenreSlider] = useState(false);
 
@@ -31,8 +31,8 @@ export default () => {
     <>
       <div className="container mb-4">
         <div className="row mt-4 p-3 shadow shadow-md rounded">
-          {movieGenres && 
-            movieGenres.map(mg => {
+          {genres && 
+            genres.map(mg => {
               return (
                 <div className="col-6 col-lg-2" key={mg.id}>
                   <button

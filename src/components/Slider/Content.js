@@ -10,16 +10,16 @@ const Content = ({ movie, onClose }) => (
       <div
         className="content__background__image"
         style={{
-          "background-image": `url(https://image.tmdb.org/t/p/w780${movie.backdrop_path})`
+          "backgroundImage": `url(https://image.tmdb.org/t/p/w780${movie.backdrop_path})`
         }}
       />
     </div>
     <div className="content__area">
       <div className="content__area__container">
         <div className="content__title">{movie.title}</div>
-        <div className="content__description">{movie.overview}</div>
+        <div className="content__description d-none d-md-block">{movie.overview}</div>
         <div className="mt-3">
-          <Link className="btn btn-primary" to={"/movie/" + movie.id }>
+          <Link className="btn btn-content" to={"/movie/" + movie.id }>
             More info
           </Link>          
         </div>
