@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/rosam018/movie-time/static/css/main.b7a8a91c.chunk.css",
+    "main.js": "/rosam018/movie-time/static/js/main.3792d2f3.chunk.js",
+    "main.js.map": "/rosam018/movie-time/static/js/main.3792d2f3.chunk.js.map",
+    "runtime-main.js": "/rosam018/movie-time/static/js/runtime-main.36a7c35e.js",
+    "runtime-main.js.map": "/rosam018/movie-time/static/js/runtime-main.36a7c35e.js.map",
+    "static/js/2.c7dbc2b0.chunk.js": "/rosam018/movie-time/static/js/2.c7dbc2b0.chunk.js",
+    "static/js/2.c7dbc2b0.chunk.js.map": "/rosam018/movie-time/static/js/2.c7dbc2b0.chunk.js.map",
+    "index.html": "/rosam018/movie-time/index.html",
+    "precache-manifest.3747a85064b83de5cd350136bcc02506.js": "/rosam018/movie-time/precache-manifest.3747a85064b83de5cd350136bcc02506.js",
+    "service-worker.js": "/rosam018/movie-time/service-worker.js",
+    "static/css/main.b7a8a91c.chunk.css.map": "/rosam018/movie-time/static/css/main.b7a8a91c.chunk.css.map",
+    "static/js/2.c7dbc2b0.chunk.js.LICENSE.txt": "/rosam018/movie-time/static/js/2.c7dbc2b0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.36a7c35e.js",
+    "static/js/2.c7dbc2b0.chunk.js",
+    "static/css/main.b7a8a91c.chunk.css",
+    "static/js/main.3792d2f3.chunk.js"
+  ]
+}
