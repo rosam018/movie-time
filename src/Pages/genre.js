@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../context/store";
 import MoviesByGenre from "../components/moviesByGenre";
-import { types } from "../context/reducers";
+import Footer from "../components/footer";
 
 export default () => {
-    const [init, setInit] = useState(false);
+  const [init, setInit] = useState(false);
 
   const [searchGenre, setSearchGenre] = useState("");
 
@@ -23,7 +23,7 @@ export default () => {
   const [showGenreSlider, setShowGenreSlider] = useState(false);
 
   const showGenreMovies = gId => {
-    setSearchGenre(gId)
+    setSearchGenre(gId);
     setShowGenreSlider(true);
   };
 
@@ -31,7 +31,7 @@ export default () => {
     <>
       <div className="container mb-4">
         <div className="row mt-4 p-3 shadow shadow-md rounded">
-          {genres && 
+          {genres &&
             genres.map(mg => {
               return (
                 <div className="col-6 col-lg-2" key={mg.id}>
@@ -47,7 +47,13 @@ export default () => {
         </div>
       </div>
 
-      {showGenreSlider === true ? <MoviesByGenre genreId={searchGenre}/> : ""}
+      {showGenreSlider === true ? (
+        <>
+          <MoviesByGenre genreId={searchGenre} /> <Footer />{" "}
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };

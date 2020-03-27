@@ -13,7 +13,7 @@ export default props => {
   const searchRef = React.createRef();
   let history = useHistory();
 
-  const handleSearch = () => {   
+  const handleSearch = () => {
     history.push("/search/" + searchRef.current.value);
   };
 
@@ -90,7 +90,12 @@ export default props => {
                 aria-describedby="basic-addon2"
               />
               <div className="input-group-append">
-                <button className="btn btn-primary" onClick={handleSearch}>
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  onClick={handleSearch}
+                  onKeyPress={e => (e.keyCode === 13 ? handleSearch : "")}
+                >
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
               </div>
